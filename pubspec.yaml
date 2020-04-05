@@ -17,18 +17,19 @@ dev_dependencies:
 flutter:
   uses-material-design: true
   assets:
-   - assets/slander.png
-   - assets/love_is_gone.png
-   - assets/this_is_post_malone.jpg
-   - assets/this_is_queen.jpg
-   - assets/this_is_alan_walker.png
-   - assets/arijit.png
-   - assets/this_is_illenium.png
-   - assets/favourite.jpg
-   - assets/dm1.png
-   - assets/dm2.png
-   - assets/close.png
-   - assets/placeholder_add.png
+    - assets/
+#    - assets/slander.png
+#    - assets/love_is_gone.png
+#    - assets/this_is_post_malone.jpg
+#    - assets/this_is_queen.jpg
+#    - assets/this_is_alan_walker.png
+#    - assets/arijit.png
+#    - assets/this_is_illenium.png
+#    - assets/favourite.jpg
+#    - assets/dm1.png
+#    - assets/dm2.png
+#    - assets/close.png
+#    - assets/placeholder_add.png
 
   # fonts:
   #   - family: Schyler
