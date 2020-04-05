@@ -1,0 +1,27 @@
+on: push # event trigger like push/pull/etc
+name: Test, Build and Release apk # can be anything basically tells what it does like comment
+jobs: # work to do on : push
+  build: # these all things (this is like an identifier)
+    name: Build APK # again defines the job
+    runs-on: ubuntu-latest # virtual environment
+    steps: # sequential steps
+      - uses: actions/checkout@v1 # uses already existing action called checkout
+      - uses: actions/setup-java@v1 # another predefined action to set-up java environment
+        with: # defines other required version dependencies
+          java-version: '12.x'
+      - uses: subosito/flutter-action@v1 # again predefined to set up flutter environment
+        with:
+          flutter-version: '1.9.1+hotfix.6'
+      - run: flutter pub get # commands to run in the respective order
+      - run: flutter build apk --debug --split-per-abi # builds non-fat apk (small size)
+
+      - name: Create a Release APK
+        uses: ncipollo/release-action@v1.6.1 # builds release apk stored at ...
+        with:
+          #           allowUpdates: true
+          artifacts: "build/app/outputs/apk/debug/*.apk" # ... this location
+          #           tag: "v*"
+          #           commit: "added new git tag"
+          token: ${{ secrets.TOKEN }} # secrets.TOKEN is API token that grants access to the repo
+          # your repo>settings>secrets>create a new token named TOKEN with value generated from
+          # settings>tokens>generate new token
